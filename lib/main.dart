@@ -15,13 +15,24 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
-        appBarTheme: AppBarTheme(
+        appBarTheme: const AppBarTheme(
           elevation: 0,
           color: Colors.transparent,
           systemOverlayStyle: SystemUiOverlayStyle.dark,
-        )
+        ),
+          textTheme: const TextTheme(
+          headline4: TextStyle(
+            fontSize: 33,
+          ),
+          bodyText1: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.normal
+          )
+        ),
+        
       ),
-      home: SplashView(),
+
+      home: const SplashView(),
     );
   }
 }
