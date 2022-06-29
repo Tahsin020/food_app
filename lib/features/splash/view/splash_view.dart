@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_app/features/home/view/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -9,8 +10,10 @@ class SplashView extends StatefulWidget {
 
 class _SplashViewState extends State<SplashView> {
   final String _splashImagePath = 'asset/images/splash.png';
-  final String _title1 = 'No Worry,Handle Your Hunger with Eattak!';
-  final String _title2 = 'Eattak come to help you hunger problem with easy find any restaurant';
+  final String _titleSpanOne = 'No Worry,';
+  final String _titleSpanTwo = 'Handle Your Hunger ';
+  final String _titleSpanThree = 'with Eattak!';
+  final String _title = 'Eattak come to help you hunger problem with easy find any restaurant';
 
   @override
   Widget build(BuildContext context) {
@@ -24,20 +27,37 @@ class _SplashViewState extends State<SplashView> {
         alignment: Alignment.center,
       ),
       Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(24.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            Text(
-              _title1,
-              style: Theme.of(context).textTheme.headline4,
-              textAlign: TextAlign.center,
-            ),
+            RichText(text: TextSpan(children: [
+              TextSpan(
+                  text: _titleSpanOne,
+                  style:Theme.of(context).textTheme.headline4?.copyWith(
+                    fontWeight: FontWeight.bold
+                  )),
+              TextSpan(
+                  text: _titleSpanTwo,
+                  style:Theme.of(context).textTheme.headline4?.copyWith(
+                    fontWeight: FontWeight.w300
+                  )),
+                        TextSpan(
+                  text: _titleSpanThree,
+                  style: Theme.of(context).textTheme.headline4?.copyWith(
+                    fontWeight: FontWeight.bold
+                  )),
+            ])),
+            // Text(
+            //   _title1,
+            //   style: Theme.of(context).textTheme.headline4,
+            //   textAlign: TextAlign.center,
+            // ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             Text(
-              _title2,
+              _title,
               style: Theme.of(context).textTheme.bodyText1,
               textAlign: TextAlign.center,
             ),
@@ -45,7 +65,10 @@ class _SplashViewState extends State<SplashView> {
               height: MediaQuery.of(context).size.height * 0.02,
             ),
             FloatingActionButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView(),));
+                setState(() {});
+              },
               backgroundColor: Colors.deepOrange,
               child: const Icon(Icons.arrow_forward_outlined),
             ),

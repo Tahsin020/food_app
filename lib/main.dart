@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData.light().copyWith(
+        backgroundColor: const Color(0xffEEEEEE),
         appBarTheme: const AppBarTheme(
           elevation: 0,
           color: Colors.transparent,
@@ -23,6 +24,10 @@ class MyApp extends StatelessWidget {
           textTheme: const TextTheme(
           headline4: TextStyle(
             fontSize: 33,
+          ),
+          headline5: TextStyle(
+            fontSize: 22,
+            color: Color(0xff32324d),
           ),
           bodyText1: TextStyle(
             fontSize: 17,
