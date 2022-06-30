@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/product/constant/color.dart';
+import 'package:food_app/product/padding/page_padding.dart';
+import 'package:food_app/product/widget/base_content_text.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -20,11 +22,14 @@ class _HomeViewState extends State<HomeView> {
           IconButton(onPressed: (){}, icon: Image.asset('asset/images/menu2.png',color: const Color(0xff4a4a6a),),),
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-          Text('Hope you enjoy the time at Gram Bistro',style: Theme.of(context).textTheme.headline5,) ,
-          ],
+      body: Padding(
+        padding: const PagePadding.all(),
+        child: SingleChildScrollView(
+          child: Column(
+            children: const [
+            BaseContentWidget(title: 'Hope you enjoy the time at Gram Bistro')
+            ],
+          ),
         ),
       ),
     );

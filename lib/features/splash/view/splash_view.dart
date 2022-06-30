@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/features/home/view/home_view.dart';
+import 'package:food_app/product/padding/page_padding.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({Key? key}) : super(key: key);
@@ -27,7 +28,7 @@ class _SplashViewState extends State<SplashView> {
         alignment: Alignment.center,
       ),
       Padding(
-        padding: const EdgeInsets.all(24.0),
+        padding: const PagePadding.all(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
