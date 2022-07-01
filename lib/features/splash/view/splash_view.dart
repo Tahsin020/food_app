@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/features/home/view/home_view.dart';
+import 'package:food_app/product/constant/color.dart';
 import 'package:food_app/product/padding/page_padding.dart';
 
 class SplashView extends StatefulWidget {
@@ -67,10 +68,10 @@ class _SplashViewState extends State<SplashView> {
             ),
             FloatingActionButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeView(),));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const HomeView(),));
                 setState(() {});
               },
-              backgroundColor: Colors.deepOrange,
+              backgroundColor: willpowerOrange,
               child: const Icon(Icons.arrow_forward_outlined),
             ),
             SizedBox(

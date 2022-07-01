@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:food_app/features/splash/view/splash_view.dart';
+import 'package:food_app/product/constant/color.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Food App',
       theme: ThemeData.light().copyWith(
-        backgroundColor: const Color(0xffEEEEEE),
+        backgroundColor:superSilver,
         appBarTheme: const AppBarTheme(
           elevation: 0,
           color: Colors.transparent,
@@ -27,7 +28,14 @@ class MyApp extends StatelessWidget {
           ),
           headline5: TextStyle(
             fontSize: 22,
-            color: Color(0xff32324d),
+            color: tieHeiMetal,
+          ),
+          headline6: TextStyle(
+            color: delicateViolet,
+            fontSize: 16,
+            fontStyle: FontStyle.normal,
+            fontWeight: FontWeight.normal
+
           ),
           bodyText1: TextStyle(
             fontSize: 17,
