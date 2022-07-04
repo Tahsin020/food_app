@@ -16,6 +16,13 @@ class _HomeViewState extends State<HomeView> {
   final String _menuImagePath = 'asset/images/menu2.png';
   final String _baseTitle = 'Hope you enjoy the time at Gram Bistro';
   final String _discover = 'Discover other dishes';
+  final String _weRecommended = 'We recommended';
+  final String _eggtoastImagePath = 'asset/images/egg_toast.png';
+  final String _curreySalmonImagePath = 'asset/images/currey_salmon.png';
+  final String _powerBowlImagePath = 'asset/images/power_bowl.png';
+  final String _vegetableSaladImagePath = 'asset/images/vegetable_salad.png';
+  final String _chickenSaladImagePath = 'asset/images/chicken_salad.png';
+  final String _greekSaladImagePath = 'asset/images/greek_salad.png';
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +32,36 @@ class _HomeViewState extends State<HomeView> {
         child: Padding(
           padding: const PagePadding.all(),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               BaseContentWidget(title: _baseTitle),
               const _CustomCard(),
-              Text(_discover,style: Theme.of(context).textTheme.headline6,),
-             const CustomProductWidget(imagePath: 'asset/images/menu2.png', productName: 'Egg Toast', price: 10.40)
-              ],
+              Text(
+                _discover,
+                style: Theme.of(context).textTheme.headline6,
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    CustomProductWidget(imagePath: _eggtoastImagePath, productName: 'Egg Toast', price: 10.40),
+                    CustomProductWidget(imagePath: _powerBowlImagePath, productName: 'Power Bowl', price: 14.00),
+                    CustomProductWidget(imagePath: _curreySalmonImagePath, productName: 'Currey Salmon', price: 16.40),
+                  ],
+                ),
+              ),
+              Text(_weRecommended, style: Theme.of(context).textTheme.headline6),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    CustomProductWidget(imagePath: _vegetableSaladImagePath, productName: 'Vegetable Salad', price: 10.40),
+                    CustomProductWidget(imagePath: _chickenSaladImagePath, productName: 'Chicken Salad', price: 14.00),
+                    CustomProductWidget(imagePath: _greekSaladImagePath, productName: 'greek Salad', price: 16.40),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -67,7 +97,7 @@ class _CustomCard extends StatelessWidget {
     Key? key,
   });
 
-  final String _avocadoSandwichImagePath = 'asset/images/avocado_sandwich.png';
+  final String _vegetableSaladImagePath = 'asset/images/vegetable_salad.png';
   final String _freeCode = 'Use Code Eattak50';
   final String _offTitle = '50% OFF';
   final String _description = 'All salad and Pasta';
@@ -81,7 +111,7 @@ class _CustomCard extends StatelessWidget {
         padding: const PagePadding.allLow(),
         child: Row(
           children: [
-            Image.asset(_avocadoSandwichImagePath),
+            Image.asset(_vegetableSaladImagePath),
             Expanded(
               child: Column(
                 children: [
@@ -97,7 +127,7 @@ class _CustomCard extends StatelessWidget {
                         .headline6
                         ?.copyWith(color: onyxHeart, fontWeight: FontWeight.bold, fontSize: 14),
                   ),
-                   _sizedBox(),
+                  _sizedBox(),
                   _CustomFreeCodeBox(freeCode: _freeCode)
                 ],
               ),
@@ -110,8 +140,8 @@ class _CustomCard extends StatelessWidget {
 
   SizedBox _sizedBox() {
     return const SizedBox(
-                  height: 16,
-                );
+      height: 16,
+    );
   }
 }
 
@@ -119,7 +149,8 @@ class _CustomFreeCodeBox extends StatelessWidget {
   const _CustomFreeCodeBox({
     Key? key,
     required String freeCode,
-  }) : _freeCode = freeCode, super(key: key);
+  })  : _freeCode = freeCode,
+        super(key: key);
 
   final String _freeCode;
 

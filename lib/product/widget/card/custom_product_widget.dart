@@ -65,19 +65,21 @@ class _CustomProductWidgetState extends State<CustomProductWidget> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
       ),
-      child: Padding(
-        padding: const EdgeInsets.all(21.0),
+      child: SizedBox(
+        height: 190,
+        width: 142,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Image.asset(_imagePath),
-            Text(_productName,style: Theme.of(context).textTheme.headline5?.copyWith(
-              fontSize: 14
-            ),),
-            Text('$_price',style: Theme.of(context).textTheme.headline6?.copyWith(
-              color: willpowerOrange,
-              fontSize: 14
-            ),),
+            SizedBox(width: 100, height: 100, child: Image.asset(_imagePath)),
+            Text(
+              _productName,
+              style: Theme.of(context).textTheme.headline5?.copyWith(fontSize: 14),
+            ),
+            Text(
+              '$_price',
+              style: Theme.of(context).textTheme.headline6?.copyWith(color: willpowerOrange, fontSize: 14),
+            ),
           ],
         ),
       ),
