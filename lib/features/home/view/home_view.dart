@@ -55,9 +55,21 @@ class _HomeViewState extends State<HomeView> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    CustomProductWidget(imagePath: _vegetableSaladImagePath, productName: 'Vegetable Salad', price: 10.40),
-                    CustomProductWidget(imagePath: _chickenSaladImagePath, productName: 'Chicken Salad', price: 14.00),
-                    CustomProductWidget(imagePath: _greekSaladImagePath, productName: 'greek Salad', price: 16.40),
+                    CustomProductWidget(
+                      imagePath: _vegetableSaladImagePath,
+                      productName: 'Vegetable Salad',
+                      price: 10.40,
+                    ),
+                    CustomProductWidget(
+                      imagePath: _chickenSaladImagePath,
+                      productName: 'Chicken Salad',
+                      price: 14.00,
+                    ),
+                    CustomProductWidget(
+                      imagePath: _greekSaladImagePath,
+                      productName: 'greek Salad',
+                      price: 16.40,
+                    ),
                   ],
                 ),
               ),
@@ -94,7 +106,7 @@ class _HomeViewState extends State<HomeView> {
 
 class _CustomCard extends StatelessWidget {
   const _CustomCard({
-    Key? key,
+    Key? key
   });
 
   final String _vegetableSaladImagePath = 'asset/images/vegetable_salad.png';

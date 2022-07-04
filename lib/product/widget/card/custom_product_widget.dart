@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:food_app/product/constant/color.dart';
 
 class CustomProductWidget extends StatefulWidget {
-  const CustomProductWidget({Key? key, required this.imagePath, required this.productName, required this.price})
+  const CustomProductWidget({Key? key, required this.imagePath, required this.productName, required this.price,  this.onPressed})
       : super(key: key);
   final String imagePath;
   final String productName;
   final double price;
+  final VoidCallback? onPressed;
 
   @override
   _CustomProductWidgetState createState() => _CustomProductWidgetState();
@@ -16,6 +17,7 @@ class _CustomProductWidgetState extends State<CustomProductWidget> {
   late final String _imagePath;
   late final String _productName;
   late final double _price;
+  late final VoidCallback? _onPressed;
 
   @override
   void didUpdateWidget(covariant CustomProductWidget oldWidget) {
@@ -29,6 +31,9 @@ class _CustomProductWidgetState extends State<CustomProductWidget> {
     if (oldWidget.price != widget.price) {
       _changePrice();
     }
+    if (oldWidget.onPressed != widget.onPressed) {
+      _changeOnPressed();
+    }
   }
 
   @override
@@ -37,6 +42,13 @@ class _CustomProductWidgetState extends State<CustomProductWidget> {
     _imagePath = widget.imagePath;
     _productName = widget.productName;
     _price = widget.price;
+    _onPressed=widget.onPressed;
+  }
+
+  void _changeOnPressed(){
+    setState(() {
+      _onPressed=widget.onPressed;
+    });
   }
 
   void _changeImagePath() {
@@ -59,28 +71,31 @@ class _CustomProductWidgetState extends State<CustomProductWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      color: white,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: SizedBox(
-        height: 190,
-        width: 142,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            SizedBox(width: 100, height: 100, child: Image.asset(_imagePath)),
-            Text(
-              _productName,
-              style: Theme.of(context).textTheme.headline5?.copyWith(fontSize: 14),
-            ),
-            Text(
-              '$_price',
-              style: Theme.of(context).textTheme.headline6?.copyWith(color: willpowerOrange, fontSize: 14),
-            ),
-          ],
+    return InkWell(
+      onTap: _onPressed,
+      child: Card(
+        elevation: 0,
+        color: white,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: SizedBox(
+          height: 190,
+          width: 142,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              SizedBox(width: 100, height: 100, child: Image.asset(_imagePath)),
+              Text(
+                _productName,
+                style: Theme.of(context).textTheme.headline5?.copyWith(fontSize: 14),
+              ),
+              Text(
+                '$_price',
+                style: Theme.of(context).textTheme.headline6?.copyWith(color: willpowerOrange, fontSize: 14),
+              ),
+            ],
+          ),
         ),
       ),
     );
